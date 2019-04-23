@@ -2,6 +2,7 @@ import React from "react";
 import Hilite from "./Hilite";
 
 const Pager = ({ data, match }) => {
+  const attributes = ["firstName", "lastName", "middleName", "email", "title"];
   return (
     <table className="table table-striped">
       <thead>
@@ -17,11 +18,13 @@ const Pager = ({ data, match }) => {
         {data.users
           ? data.users.map(person => (
               <tr key={person.id}>
-                <Hilite attribute={person.firstName} match={match} />
-                <Hilite attribute={person.lastName} match={match} />
-                <Hilite attribute={person.middleName} match={match} />
-                <Hilite attribute={person.email} match={match} />
-                <Hilite attribute={person.title} match={match} />
+                {attributes.map(attribute => (
+                  <Hilite
+                    key={attribute}
+                    attribute={person[attribute]}
+                    match={match}
+                  />
+                ))}
               </tr>
             ))
           : null}

@@ -9,7 +9,7 @@ const Nav = ({ location }) => {
     },
     {
       type: "Users",
-      path: "/users"
+      path: "/users/0"
     }
   ];
 
