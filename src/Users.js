@@ -95,7 +95,7 @@ class Users extends Component {
         type: "Last",
         path: searchTerm
           ? `/users/search/${searchTerm}/${Math.floor(count / 50)}`
-          : "/users/165",
+          : `/users/${Math.ceil(count / 50) - 1}`,
         class: `btn btn-success ${
           index * 1 === Math.ceil(count / 50) - 1 ? "disabled" : ""
         }`
